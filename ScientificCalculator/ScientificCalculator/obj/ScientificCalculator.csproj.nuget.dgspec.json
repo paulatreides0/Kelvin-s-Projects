@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kelgo\\source\\repos\\ScientificCalculator\\ScientificCalculator\\ScientificCalculator.csproj": {}
+    "C:\\Users\\kelgo\\Source\\Repos\\paulatreides0\\Kelvins-Projects\\ScientificCalculator\\ScientificCalculator\\ScientificCalculator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kelgo\\source\\repos\\ScientificCalculator\\ScientificCalculator\\ScientificCalculator.csproj": {
+    "C:\\Users\\kelgo\\Source\\Repos\\paulatreides0\\Kelvins-Projects\\ScientificCalculator\\ScientificCalculator\\ScientificCalculator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kelgo\\source\\repos\\ScientificCalculator\\ScientificCalculator\\ScientificCalculator.csproj",
+        "projectUniqueName": "C:\\Users\\kelgo\\Source\\Repos\\paulatreides0\\Kelvins-Projects\\ScientificCalculator\\ScientificCalculator\\ScientificCalculator.csproj",
         "projectName": "ScientificCalculator",
-        "projectPath": "C:\\Users\\kelgo\\source\\repos\\ScientificCalculator\\ScientificCalculator\\ScientificCalculator.csproj",
+        "projectPath": "C:\\Users\\kelgo\\Source\\Repos\\paulatreides0\\Kelvins-Projects\\ScientificCalculator\\ScientificCalculator\\ScientificCalculator.csproj",
         "packagesPath": "C:\\Users\\kelgo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kelgo\\source\\repos\\ScientificCalculator\\ScientificCalculator\\obj\\",
+        "outputPath": "C:\\Users\\kelgo\\Source\\Repos\\paulatreides0\\Kelvins-Projects\\ScientificCalculator\\ScientificCalculator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -30,6 +30,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -41,6 +42,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -59,7 +61,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
