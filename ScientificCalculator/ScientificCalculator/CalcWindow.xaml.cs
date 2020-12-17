@@ -23,11 +23,13 @@ namespace ScientificCalculator
 		string Input = string.Empty;
 		string Operand1 = string.Empty;
 		string Operand2 = string.Empty;
-		char Operation;
+		char Operation = '\0';
 		double Result = 0.0;
 
 		//Determines if you just clear line, or wipe memory also
 		bool WipeFlag = false;
+		//Ensures there is no saved operation
+		bool RegOper = false;
 
 		public CalcWindow()
 		{
@@ -38,30 +40,77 @@ namespace ScientificCalculator
 		//Multiplication
 		protected void Button_Click_Multiply(object sender, RoutedEventArgs e)
 		{
-			Operand1 = Input;
-			Operation = '*';
-			Input = string.Empty;
+			if (RegOper == false)
+			{
+				Operand1 = Input;
+				Operation = '*';
+				Input = String.Format("{0} {1} ", Operand1, Operation);
+				RegOper = true;
+			}
+			else
+			{
+				//For Future: Implement Error Message
+			}
 		}
 
 		private void Button_Click_Divide(object sender, RoutedEventArgs e)
 		{
-			Operand1 = Input;
-			Operation = '/';
-			Input = string.Empty;
+			if(RegOper == false)
+			{
+				Operand1 = Input;
+				Operation = '/';
+				Input = String.Format("{0} {1} ", Operand1, Operation);
+				RegOper = true;
+			}
+			else
+			{
+				//For Future: Implement Error Message
+			}
 		}
 
 		private void Button_Click_Add(object sender, RoutedEventArgs e)
 		{
-			Operand1 = Input;
-			Operation = '+';
-			Input = string.Empty;
+			if (RegOper == false)
+			{
+				Operand1 = Input;
+				Operation = '+';
+				Input = String.Format("{0} {1} ", Operand1, Operation);
+				RegOper = true;
+			}
+			else
+			{
+				//For Future: Implement Error Message
+			}
 		}
 
 		private void Button_Click_Subtract(object sender, RoutedEventArgs e)
 		{
-			Operand1 = Input;
-			Operation = '-';
-			Input = string.Empty;
+			if (RegOper == false)
+			{
+				Operand1 = Input;
+				Operation = '-';
+				Input = String.Format("{0} {1} ", Operand1, Operation);
+				RegOper = true;
+			}
+			else
+			{
+				//For Future: Implement Error Message
+			}
+		}
+
+		private void Button_Click_Power(object sender, RoutedEventArgs e)
+		{
+			if (RegOper == false)
+			{
+				Operand1 = Input;
+				Operation = '^';
+				Input = String.Format("{0}{1}", Operand1, Operation);
+				RegOper = true;
+			}
+			else
+			{
+				//For Future: Implement Error Message
+			}
 		}
 
 		//Numbers
@@ -180,11 +229,6 @@ namespace ScientificCalculator
 
 		}
 
-		private void Button_Click_Power(object sender, RoutedEventArgs e)
-		{
-
-		}
-
 		//Clear Window - Click Once to Clear Line, Twice to Clear Memory Also
 		private void Button_Click_Clear(object sender, RoutedEventArgs e)
 		{
@@ -197,8 +241,10 @@ namespace ScientificCalculator
 			{
 				this.Input = string.Empty;
 				this.Operand1 = string.Empty;
+				this.Operation = '\0';
 
 				WipeFlag = false;
+				RegOper = false;
 			}
 		}
 
@@ -223,7 +269,7 @@ namespace ScientificCalculator
 			{
 				case '*':
 				{
-					this.Output.Text = (num1 * num2).ToString();
+					this.Result = num1 * num2;
 					break;
 				}
 
@@ -231,12 +277,11 @@ namespace ScientificCalculator
 				{
 					if (num2 != 0)
 					{
-						this.Output.Text = (num1 / num2).ToString();
+						this.Result = num1 / num2;
 					}
 
 					else
 					{
-						this.Output.Text = "";
 						this.Output.Text = "ERROR! DIVIDE BY ZERO!";
 					}
 				
@@ -245,16 +290,36 @@ namespace ScientificCalculator
 
 				case '+':
 				{
-					this.Output.Text = (num1 + num2).ToString();
+					this.Result = num1 + num2;
 					break;
 				}
 
 				case '-':
 				{
-					this.Output.Text = (num1 - num2).ToString();
+					this.Result = num1 - num2;
+					break;
+				}
+
+				case '^':
+				{
+					this.Result = Math.Pow(num1, num2);
 					break;
 				}
 			}
+
+			this.Output.Text = String.Format("{0} = {1}", this.Output.Text, Result.ToString());
+
+			//Reset Variables
+			//ResetOper & WipeFlag Flag
+			RegOper = false;
+			WipeFlag = false;
+			//Set Operand1 for carry over
+			Operand1 = this.Result.ToString();
+			//Reset Values to Default
+			Input = string.Empty;
+			Operand2 = string.Empty;
+			Operation = '\0';
+			Result = 0.0;
 		}
 	}
 }

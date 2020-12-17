@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="CalcWindow" Height="520" Width="440">
 	<Grid Height="480" Width="420">
-		<TextBox x:Name="Output" Text="TextBox" TextWrapping="Wrap" Width="380" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Grid.ColumnSpan="2"/>
+		<TextBox x:Name="Output" Text="" TextWrapping="Wrap" Width="380" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Grid.ColumnSpan="2"/>
 		<Button x:Name="SignChangeButton" Content="+/-" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,19" Click="Button_Click_SignChange"/>
 		<Button x:Name="ZeroButton" Content="0" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="100,0,0,19" Click="Button_Click_0"/>
 		<Button x:Name="PeriodButton" Content="." Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="180,0,0,19" Click="Button_Click_Period"/>
