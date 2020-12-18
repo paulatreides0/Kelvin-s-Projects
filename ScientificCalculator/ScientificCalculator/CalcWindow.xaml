@@ -20,18 +20,18 @@
 		<Button x:Name="SevenButton" Content="7" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,259" Click="Button_Click_7"/>
 		<Button x:Name="EightButton" Content="8" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="100,0,0,259" Click="Button_Click_8"/>
 		<Button x:Name="NineButton" Content="9" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="180,0,0,259" Click="Button_Click_9"/>
-		<Button x:Name="PiButton" Content="π" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,339" Click="Button_Click_Pi"/>
-		<Button x:Name="NatNumButton" Content="e" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="100,0,0,339" Click="Button_Click_NatNum"/>
-		<Button x:Name="PowerButton" Content="^" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="180,0,0,339" Click="Button_Click_Power"/>
+		<Button x:Name="PiButton" Content="π&#xD;&#xA;EE" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,339" Click="Button_Click_Pi"/>
+		<Button x:Name="NatNumButton" Content="e&#xD;&#xA;ln" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="100,0,0,339" Click="Button_Click_NatNum"/>
+		<Button x:Name="PowerButton" Content="^&#xD;&#xA;" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="180,0,0,339" Click="Button_Click_Power"/>
 		<Button x:Name="MinusButton" Content="–" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="260,0,0,19" Click="Button_Click_Subtract"/>
 		<Button x:Name="EnterButton" Content="Enter" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="340,0,0,19" Click="Button_Click_Enter"/>
 		<Button x:Name="PlusButton" Content="+" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="260,0,0,99" Click="Button_Click_Add"/>
-		<Button x:Name="TanButton" Content="tan" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="340,0,0,99" Click="Button_Click_Tan"/>
+		<Button x:Name="TanButton" Content="tan&#xD;&#xA;tan⁻¹" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="340,0,0,99" Click="Button_Click_Tan"/>
 		<Button x:Name="DivideButton" Content="÷" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="260,0,0,179" Click="Button_Click_Divide"/>
-		<Button x:Name="CosButton" Content="cos" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="340,0,0,179" Click="Button_Click_Cos"/>
+		<Button x:Name="CosButton" Content="cos&#xD;&#xA;cos⁻¹" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="340,0,0,179" Click="Button_Click_Cos"/>
 		<Button x:Name="MultiplyButton" Content="x" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="260,0,0,259" Click="Button_Click_Multiply"/>
-		<Button x:Name="SinButton" Content="sin" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="340,0,0,259" Click="Button_Click_Sin"/>
-		<Button x:Name="SquareRootButton" Content="√" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="260,0,0,339" Click="Button_Click_SqRt"/>
+		<Button x:Name="SinButton" Content="sin&#xD;&#xA;sin⁻¹" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="340,0,0,259" Click="Button_Click_Sin"/>
+		<Button x:Name="SquareRootButton" Content="√&#xD;&#xA;" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="260,0,0,339" Click="Button_Click_SqRt"/>
 		<Button x:Name="ClearButton" Content="Clear" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="340,0,0,339" Click="Button_Click_Clear"/>
 	</Grid>
 </Window>

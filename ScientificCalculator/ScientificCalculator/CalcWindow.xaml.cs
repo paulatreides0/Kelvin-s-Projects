@@ -23,30 +23,39 @@ namespace ScientificCalculator
 		string Input = string.Empty;
 		string Operand1 = string.Empty;
 		string Operand2 = string.Empty;
-		char Operation = '\0';
+		char? Operation = null;
 		double Result = 0.0;
 
 		//Determines if you just clear line, or wipe memory also
-		bool WipeFlag = false;
+		bool HaveWiped = false;
 		//Ensures there is no saved operation
 		bool RegOper = false;
 		//Checks if equal sign has been used, 
 		//bool EqualsUsed = false;
 		//Checks for fatal errors
-		bool ErrorCheck = false;
-
-		//For Later: Implement by using char list checking operation symbols as delimiters when operation is invoked
+		bool HasError = false;
 
 		public CalcWindow()
 		{
 			InitializeComponent();
+
+			Input = string.Empty;
+			Operand1 = string.Empty;
+			Operand2 = string.Empty;
+			Operation = null;
+			Result = 0.0;
+
+			HaveWiped = false;
+			RegOper = false;
+			//EqualsUsed = false;
+			HasError = false;
 		}
 
 		//Operations
 		//Generic Operation Implementer
 		private void ImplementOperation(char oper)
 		{
-			if (RegOper == false)
+			if (!RegOper)
 			{
 				Operand1 = Operand2;
 				Operand2 = string.Empty;
@@ -62,7 +71,6 @@ namespace ScientificCalculator
 			}
 		}
 
-		//Multiplication
 		protected void Button_Click_Multiply(object sender, RoutedEventArgs e)
 		{
 			ImplementOperation('*');
@@ -85,7 +93,7 @@ namespace ScientificCalculator
 
 		private void Button_Click_Power(object sender, RoutedEventArgs e)
 		{
-			if (RegOper == false)
+			if (!RegOper)
 			{
 				Operand1 = Operand2;
 				Operand2 = string.Empty;
@@ -103,7 +111,7 @@ namespace ScientificCalculator
 
 		private void Button_Click_SqRt(object sender, RoutedEventArgs e)
 		{
-			if (RegOper == false)
+			if (!RegOper)
 			{
 				Operand1 = Operand2;
 				Operand2 = string.Empty;
@@ -121,66 +129,65 @@ namespace ScientificCalculator
 
 
 		//Numbers
-		private void NewMethod(string numString)
+		private void ButtonInput(string numString)
 		{
-			this.Output.Text = string.Empty;
 			Operand2 += numString;
-			this.Output.Text += Input + Operand2;
+			this.Output.Text = Input + Operand2;
 		}
 
 		private void Button_Click_0(object sender, RoutedEventArgs e)
 		{
-			NewMethod("0");
+			ButtonInput("0");
 		}
 
 		private void Button_Click_1(object sender, RoutedEventArgs e)
 		{
-			NewMethod("1");
+			ButtonInput("1");
 		}
 
 		private void Button_Click_2(object sender, RoutedEventArgs e)
 		{
-			NewMethod("2"); ;
+			ButtonInput("2"); ;
 		}
 
 		private void Button_Click_3(object sender, RoutedEventArgs e)
 		{
-			NewMethod("3"); ;
+			ButtonInput("3"); ;
 		}
 
 		private void Button_Click_4(object sender, RoutedEventArgs e)
 		{
-			NewMethod("4"); ;
+			ButtonInput("4"); ;
 		}
 
 		private void Button_Click_5(object sender, RoutedEventArgs e)
 		{
-			NewMethod("5"); ;
+			ButtonInput("5"); ;
 		}
 
 		private void Button_Click_6(object sender, RoutedEventArgs e)
 		{
-			NewMethod("6"); ;
+			ButtonInput("6"); ;
 		}
 
 		private void Button_Click_7(object sender, RoutedEventArgs e)
 		{
-			NewMethod("7"); ;
+			ButtonInput("7"); ;
 		}
 
 		private void Button_Click_8(object sender, RoutedEventArgs e)
 		{
-			NewMethod("8");
+			ButtonInput("8");
 		}
 
 		private void Button_Click_9(object sender, RoutedEventArgs e)
 		{
-			NewMethod("9");
+			ButtonInput("9");
 		}
 
 		private void Button_Click_Period(object sender, RoutedEventArgs e)
 		{
-			NewMethod(".");
+			ButtonInput(".");
 		}
 
 		//Implement Later
@@ -203,20 +210,14 @@ namespace ScientificCalculator
 			{
 				tempNum = -tempNum;
 				Operand2 = tempNum.ToString();
-
-				this.Output.Text = string.Empty;
-				this.Output.Text += Input + Operand2;
+				this.Output.Text = Input + Operand2;
 			}
 
 			else
 			{
 				Operand2 = "-";
-
-				this.Output.Text = string.Empty;
-				this.Output.Text += Input + Operand2;
+				this.Output.Text = Input + Operand2;
 			}
-
-
 		}
 
 
@@ -240,15 +241,15 @@ namespace ScientificCalculator
 		private void Button_Click_Clear(object sender, RoutedEventArgs e)
 		{
 			//If double-clicked, clear entire history
-			if ((WipeFlag == true) && (Operand2 == string.Empty) && (ErrorCheck == false))
+			if ((HaveWiped) && (Operand2 == string.Empty) && (!HasError))
 			{
 				Input = string.Empty;
 				Operand1 = string.Empty;
 				Operand2 = string.Empty;
-				Operation = '\0';
+				Operation = null;
 				this.Output.Text = string.Empty;
 
-				WipeFlag = false;
+				HaveWiped = false;
 				RegOper = false;
 				//EqualsUsed = false;
 			}
@@ -257,7 +258,7 @@ namespace ScientificCalculator
 			{
 				Operand2 = string.Empty;
 				this.Output.Text = Input;
-				WipeFlag = true;
+				HaveWiped = true;
 			}
 		}
 
@@ -270,14 +271,14 @@ namespace ScientificCalculator
 		private void Calculate()
 		{
 			//Makes sure that there is both a) a number to work with, and b) that there is an operation being used
-			if ((Operand2 != string.Empty) && (Operation != '\0'))
+			if ((Operand2 != string.Empty) && (Operation != null))
 			{
 				double num1;
 				double num2;
 				double tempNum;
 
-				double.TryParse(Operand1, out num1);
-				double.TryParse(Operand2, out num2);
+				num1 = double.Parse(Operand1);
+				num2 = double.Parse(Operand2);
 
 
 				switch (Operation)
@@ -297,7 +298,7 @@ namespace ScientificCalculator
 
 							else
 							{
-								ErrorCheck = true;
+								HasError = true;
 								this.Output.Text = "ERROR! DIVIDE BY ZERO!";
 								Operand2 = string.Empty;
 							}
@@ -326,21 +327,21 @@ namespace ScientificCalculator
 
 							else if ((num2 % 1) != 0)
 							{
-								ErrorCheck = true;
+								HasError = true;
 								this.Output.Text = "ERROR! EXPONENT IS NOT AN INTEGER!";
 								Operand2 = string.Empty;
 							}
 
 							else if ((num2 < 0) && (num1 == 0))
 							{
-								ErrorCheck = true;
+								HasError = true;
 								this.Output.Text = "ERROR! DIVIDE BY ZERO!";
 								Operand2 = string.Empty;
 							}
 
 							else
 							{
-								ErrorCheck = true;
+								HasError = true;
 								this.Output.Text = "UNEXPECTED ERROR! PLEASE NOTE AND RESOLVE!";
 								Operand2 = string.Empty;
 							}
@@ -350,11 +351,12 @@ namespace ScientificCalculator
 
 					case '√':
 						{
-							if ((num2 >= 0) && (num1 != 0) && ((num1 % 1) == 0))
+							if ((((num2 >= 0) && (num1 > 0)) || ((num2 > 0) && (num1 < 0)) && ((num1 % 1) == 0)))
 							{
-								Result = Math.Pow(num2, 1/num1);
+								Result = Math.Pow(num2, 1.0/num1);
 							}
 
+							//Default to SqRt if no root is provided
 							else if (num1 == 0)
 							{
 								Result = Math.Pow(num2, 0.5);
@@ -362,28 +364,28 @@ namespace ScientificCalculator
 
 							else if ((num2 % 1) != 0)
 							{
-								ErrorCheck = true;
+								HasError = true;
 								this.Output.Text = "ERROR! EXPONENT IS NOT AN INTEGER!";
 								Operand2 = string.Empty;
 							}
 
 							else if ((num2 == 0) && (num1 < 0))
 							{
-								ErrorCheck = true;
+								HasError = true;
 								this.Output.Text = "ERROR! DIVIDE BY ZERO!";
 								Operand2 = string.Empty;
 							}
 
 							else if (((num1 % 2) == 0) && (num1 < 0))
 							{
-								ErrorCheck = true;
+								HasError = true;
 								this.Output.Text = "ERROR! ANSWER IS A COMPLEX NUMBER!";
 								Operand2 = string.Empty;
 							}
 
 							else
 							{
-								ErrorCheck = true;
+								HasError = true;
 								this.Output.Text = "UNEXPECTED ERROR! PLEASE NOTE AND RESOLVE!";
 								Operand2 = string.Empty;
 							}
@@ -392,16 +394,16 @@ namespace ScientificCalculator
 						}
 				}
 
-				//Prevent 
-				if (ErrorCheck == false)
+				//Prevent code with error from running
+				if (!HasError)
 				{
 					this.Output.Text = String.Format("{0} = {1}", this.Output.Text, Result.ToString());
 
 					//Reset Variables
-					//ResetOper & WipeFlag Flag
+					//ResetOper & HaveWiped Flag
 					RegOper = false;
-					WipeFlag = false;
-					ErrorCheck = false;
+					HaveWiped = false;
+					HasError = false;
 					//Carry Over/Continuation Code
 					//Set Use Flag & Operand1 for carry over
 					//EqualsUsed = true;
@@ -410,14 +412,14 @@ namespace ScientificCalculator
 					//Reset Values to Default
 					Input = string.Empty;
 					Operand2 = string.Empty;
-					Operation = '\0';
+					Operation = null;
 					Result = 0.0;
 				}
 				else
 				{
 					//RegOper = false;
-					//WipeFlag = false;
-					ErrorCheck = false;
+					//HaveWiped = false;
+					HasError = false;
 					//For Future: Implement Error Message
 				}
 
@@ -438,3 +440,5 @@ namespace ScientificCalculator
 //- I: Add keyboard input
 //- I: "Fix" roots, as currently implemented you assign Operand2 first then Operand1, and Clearing erases everything
 //- E: -3root(0) = infinity, not an Error Message
+// -I: Implement ability to read and interpret arbitrarily long string before using equals
+// -I: Implement input by using char list checking operation symbols as delimiters when operation is invoked?
