@@ -30,6 +30,10 @@ namespace ScientificCalculator
 		bool WipeFlag = false;
 		//Ensures there is no saved operation
 		bool RegOper = false;
+		//Checks if equal sign has been used, 
+		bool EqualsUsed = false;
+
+		//For Later: Implement by using char list checking operation symbols as delimiters when operation is invoked
 
 		public CalcWindow()
 		{
@@ -42,9 +46,11 @@ namespace ScientificCalculator
 		{
 			if (RegOper == false)
 			{
-				Operand1 = Input;
+				Operand1 = Operand2;
+				Operand2 = string.Empty;
 				Operation = '*';
 				Input = String.Format("{0} {1} ", Operand1, Operation);
+				this.Output.Text = Input;
 				RegOper = true;
 			}
 			else
@@ -57,9 +63,11 @@ namespace ScientificCalculator
 		{
 			if(RegOper == false)
 			{
-				Operand1 = Input;
+				Operand1 = Operand2;
+				Operand2 = string.Empty;
 				Operation = '/';
 				Input = String.Format("{0} {1} ", Operand1, Operation);
+				this.Output.Text = Input;
 				RegOper = true;
 			}
 			else
@@ -72,9 +80,11 @@ namespace ScientificCalculator
 		{
 			if (RegOper == false)
 			{
-				Operand1 = Input;
+				Operand1 = Operand2;
+				Operand2 = string.Empty;
 				Operation = '+';
 				Input = String.Format("{0} {1} ", Operand1, Operation);
+				this.Output.Text = Input;
 				RegOper = true;
 			}
 			else
@@ -87,9 +97,11 @@ namespace ScientificCalculator
 		{
 			if (RegOper == false)
 			{
-				Operand1 = Input;
+				Operand1 = Operand2;
+				Operand2 = string.Empty;
 				Operation = '-';
 				Input = String.Format("{0} {1} ", Operand1, Operation);
+				this.Output.Text = Input;
 				RegOper = true;
 			}
 			else
@@ -102,9 +114,11 @@ namespace ScientificCalculator
 		{
 			if (RegOper == false)
 			{
-				Operand1 = Input;
+				Operand1 = Operand2;
+				Operand2 = string.Empty;
 				Operation = '^';
 				Input = String.Format("{0}{1}", Operand1, Operation);
+				this.Output.Text = Input;
 				RegOper = true;
 			}
 			else
@@ -117,94 +131,96 @@ namespace ScientificCalculator
 		private void Button_Click_0(object sender, RoutedEventArgs e)
 		{
 			this.Output.Text = "";
-			Input += "0";
-			this.Output.Text += Input;
+			Operand2 += "0";
+			this.Output.Text += Input + Operand2;
 		}
 
 		private void Button_Click_1(object sender, RoutedEventArgs e)
 		{
 			this.Output.Text = "";
-			Input += "1";
-			this.Output.Text += Input;
+			Operand2 += "1";
+			this.Output.Text += Input + Operand2;
 		}
 
 		private void Button_Click_2(object sender, RoutedEventArgs e)
 		{
 			this.Output.Text = "";
-			Input += "2";
-			this.Output.Text += Input;
+			Operand2 += "2";
+			this.Output.Text += Input + Operand2;
 		}
 
 		private void Button_Click_3(object sender, RoutedEventArgs e)
 		{
 			this.Output.Text = "";
-			Input += "3";
-			this.Output.Text += Input;
+			Operand2 += "3";
+			this.Output.Text += Input + Operand2;
 		}
 
 		private void Button_Click_4(object sender, RoutedEventArgs e)
 		{
 			this.Output.Text = "";
-			Input += "4";
-			this.Output.Text += Input;
+			Operand2 += "4";
+			this.Output.Text += Input + Operand2;
 		}
 
 		private void Button_Click_5(object sender, RoutedEventArgs e)
 		{
 			this.Output.Text = "";
-			Input += "5";
-			this.Output.Text += Input;
+			Operand2 += "5";
+			this.Output.Text += Input + Operand2;
 		}
 
 		private void Button_Click_6(object sender, RoutedEventArgs e)
 		{
 			this.Output.Text = "";
-			Input += "6";
-			this.Output.Text += Input;
+			Operand2 += "6";
+			this.Output.Text += Input + Operand2;
 		}
 
 		private void Button_Click_7(object sender, RoutedEventArgs e)
 		{
 			this.Output.Text = "";
-			Input += "7";
-			this.Output.Text += Input;
+			Operand2 += "7";
+			this.Output.Text += Input + Operand2;
 		}
 
 		private void Button_Click_8(object sender, RoutedEventArgs e)
 		{
 			this.Output.Text = "";
-			Input += "8";
-			this.Output.Text += Input;
+			Operand2 += "8";
+			this.Output.Text += Input + Operand2;
 		}
 
 		private void Button_Click_9(object sender, RoutedEventArgs e)
 		{
 			this.Output.Text = "";
-			Input += "9";
-			this.Output.Text += Input;
+			Operand2 += "9";
+			this.Output.Text += Input + Operand2;
 		}
 
 		private void Button_Click_Period(object sender, RoutedEventArgs e)
 		{
 			this.Output.Text = "";
-			Input += ".";
-			this.Output.Text += Input;
+			Operand2 += ".";
+			this.Output.Text += Input + Operand2;
 		}
 
 		//Implement Later
 		private void Button_Click_Pi(object sender, RoutedEventArgs e)
 		{
+			
 		}
 
 		private void Button_Click_NatNum(object sender, RoutedEventArgs e)
 		{
+
 		}
 
 		private void Button_Click_SignChange(object sender, RoutedEventArgs e)
 		{
-			this.Output.Text = "";
-			Input += "0";
-			this.Output.Text += Input;
+			//this.Output.Text = "";
+			//Operand2 += "0";
+			//this.Output.Text += Operand2;
 		}
 
 
@@ -232,19 +248,22 @@ namespace ScientificCalculator
 		//Clear Window - Click Once to Clear Line, Twice to Clear Memory Also
 		private void Button_Click_Clear(object sender, RoutedEventArgs e)
 		{
-			this.Output.Text = "";
-			this.Operand2 = string.Empty;
+			Operand2 = string.Empty;
+			this.Output.Text = Input;
 
-			WipeFlag = true;
-
-			if(WipeFlag == true)
+			//If double-clicked, clear entire history
+			if ((WipeFlag == true) && (Operand2 != string.Empty))
 			{
-				this.Input = string.Empty;
-				this.Operand1 = string.Empty;
-				this.Operation = '\0';
+				Input = string.Empty;
+				Operand1 = string.Empty;
+				Operation = '\0';
 
 				WipeFlag = false;
 				RegOper = false;
+			}
+			else
+			{
+				WipeFlag = true;
 			}
 		}
 
@@ -258,7 +277,6 @@ namespace ScientificCalculator
 
 		private void Calculate()
 		{
-			Operand2 = Input;
 			double num1;
 			double num2;
 
@@ -270,6 +288,7 @@ namespace ScientificCalculator
 				case '*':
 				{
 					this.Result = num1 * num2;
+					Console.WriteLine(Result);
 					break;
 				}
 
@@ -277,7 +296,7 @@ namespace ScientificCalculator
 				{
 					if (num2 != 0)
 					{
-						this.Result = num1 / num2;
+						Result = num1 / num2;
 					}
 
 					else
@@ -290,19 +309,19 @@ namespace ScientificCalculator
 
 				case '+':
 				{
-					this.Result = num1 + num2;
+					Result = num1 + num2;
 					break;
 				}
 
 				case '-':
 				{
-					this.Result = num1 - num2;
+					Result = num1 - num2;
 					break;
 				}
 
 				case '^':
 				{
-					this.Result = Math.Pow(num1, num2);
+					Result = Math.Pow(num1, num2);
 					break;
 				}
 			}
@@ -313,8 +332,10 @@ namespace ScientificCalculator
 			//ResetOper & WipeFlag Flag
 			RegOper = false;
 			WipeFlag = false;
-			//Set Operand1 for carry over
-			Operand1 = this.Result.ToString();
+			//Carry Over/Continuation Code
+			//Set Use Flag & Operand1 for carry over
+			EqualsUsed = true;
+			Operand1 = Result.ToString();
 			//Reset Values to Default
 			Input = string.Empty;
 			Operand2 = string.Empty;

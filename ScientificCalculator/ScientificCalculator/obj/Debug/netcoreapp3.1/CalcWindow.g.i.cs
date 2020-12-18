@@ -261,7 +261,7 @@ namespace ScientificCalculator {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ScientificCalculator;V1.0.0.0;component/calcwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ScientificCalculator;component/calcwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\CalcWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
