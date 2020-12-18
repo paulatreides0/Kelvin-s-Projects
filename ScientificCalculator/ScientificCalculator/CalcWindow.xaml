@@ -31,7 +31,7 @@
 		<Button x:Name="CosButton" Content="cos" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="340,0,0,179" Click="Button_Click_Cos"/>
 		<Button x:Name="MultiplyButton" Content="x" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="260,0,0,259" Click="Button_Click_Multiply"/>
 		<Button x:Name="SinButton" Content="sin" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="340,0,0,259" Click="Button_Click_Sin"/>
-		<Button x:Name="LogButton" Content="Log" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="260,0,0,339" Click="Button_Click_Log"/>
+		<Button x:Name="SquareRootButton" Content="√" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="260,0,0,339" Click="Button_Click_SqRt"/>
 		<Button x:Name="ClearButton" Content="Clear" Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="340,0,0,339" Click="Button_Click_Clear"/>
 	</Grid>
 </Window>
